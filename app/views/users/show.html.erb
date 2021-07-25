@@ -1,0 +1,17 @@
+<%= @user.name %>
+<br>
+<%= @user.height %>
+<br>
+<%= @user.happiness %>
+<br>
+<%= @user.nausea %>
+<br>
+Tickets: <%= @user.tickets %>
+<br>
+"Mood" <%= @user.mood %>
+<br>
+<%= @admin %>
+<br>
+<%= link_to "Log Out", logout_path(@user) %>
+<br>
+<%= link_to "See attractions", attractions_path %>

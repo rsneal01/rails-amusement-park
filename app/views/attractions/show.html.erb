@@ -1,1 +1,5 @@
-<%= button_to "Go on this ride", users_update_path(@user) %>
+
+<%= form_tag(users_update_path(@user)) do %>
+    <%= hidden_field_tag "attraction_id", @attraction.id %>
+    <%= button_tag "Go on this ride" %>
+<% end %>

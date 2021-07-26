@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/attractions' => 'attractions#index'
   get '/attractions/:id', to: 'attractions#show', as: 'attraction'
-  post '/users/:id/edit', to: 'users#update', as: 'users_update'
+  
+  post '/users/:id/', to: 'users#update', as: 'users_update'
 
   # resources :attractions, only: [:new, :create, :show]
   # get '/users/:id', to: 'users#show', as: 'user'

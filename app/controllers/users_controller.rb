@@ -15,26 +15,33 @@ class UsersController < ApplicationController
     end
 
     def show
-        # binding.pry
         @user = User.find(params[:id])
-        # if @user.happiness && @user.nausea
-        #     @mood = @user.mood
-        # end
         if session[:user_id] != @user.id
             redirect_to 'root'
         elsif @user.admin == true
             @admin = "ADMIN"
         end
         # binding.pry
+        # @attraction = Attraction.find(params[:attraction_id])
+        # @user.tickets = @user.tickets - @attraction.tickets
+        # if @attraction.happiness_rating < @attraction.nausea_rating
+        #     @user.happiness = 0
+        # end
+        # @user.save
+        # binding.pry
+        
     end
 
     def update
-        # binding.pry
+        # should we consolidate all of this into the show action?
         @user = User.find(params[:id])
-        @attraction = Attraction.find(params[:id])
-        # binding.pry
+        @attraction = Attraction.find(params[:attraction_id])
         @user.tickets = @user.tickets - @attraction.tickets
+        if @attraction.happiness_rating < @attraction.nausea_rating
+            @user.happiness = 0
+        end
         @user.save
+        #    binding.pry
         redirect_to user_path(@user)
     end
 

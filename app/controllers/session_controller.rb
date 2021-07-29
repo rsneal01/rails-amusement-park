@@ -1,5 +1,6 @@
-class SessionsController < ApplicationController
-    before_action :is_logged_in?
+class SessionController < ApplicationController
+    skip_before_action :verified_user, only: [:new, :create]
+
 
     def new
         @user = User.new
@@ -13,13 +14,13 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            redirect_to 'root'
+            render 'new'
         end
     end
 
     def destroy
         session[:user_id] = nil     
-        redirect_to 'root' 
+        redirect_to root_path 
     end
     
 end

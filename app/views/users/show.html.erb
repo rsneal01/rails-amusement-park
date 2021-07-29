@@ -1,4 +1,8 @@
-
+<% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
 <br>
 <%= @user.name %>
 <br>
@@ -14,7 +18,7 @@ Tickets: <%= @user.tickets %>
 <br>
 <%= @admin %>
 <br>
-<%= link_to "Log Out", logout_path(@user) %>
+<%= link_to "Log Out", session_path, method:'delete' %>
 <br>
 <%= link_to "See attractions", attractions_path %>
 <br>

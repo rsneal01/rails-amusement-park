@@ -1,0 +1,15 @@
+<%= form_tag("/attractions") do %>
+    <label>name:</label><br>
+    <%= text_field_tag :'attraction[name]' %><br>
+    <label>height:</label><br>
+    <%= text_area_tag :'attraction[min_height]' %><br>
+    <label>tickets:</label><br>
+    <%= text_area_tag :'attraction[tickets]' %><br>
+    <label>nausea:</label><br>
+    <%= text_area_tag :'attraction[nausea_rating]' %><br>
+    <label>happiness:</label><br>
+    <%= text_area_tag :'attraction[happiness_rating]' %><br>
+    
+   
+    <%= submit_tag "Create Attraction" %>
+  <% end %>
